@@ -2,8 +2,6 @@ import keyboard
 import pydirectinput
 from os.path import expanduser
 
-print(expanduser(r'~\Documents'))
-
 def print_pressed_keys(e):
 	try:
 		with open(expanduser(r'~\Documents') + '/config.properties', 'r') as file_handler:
