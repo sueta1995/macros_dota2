@@ -1,10 +1,12 @@
 import keyboard
 import pydirectinput
-import os
+from os.path import expanduser
+
+print(expanduser(r'~\Documents'))
 
 def print_pressed_keys(e):
 	try:
-		with open('config.properties', 'r') as file_handler:
+		with open(expanduser(r'~\Documents') + '/config.properties', 'r') as file_handler:
 		    for line in file_handler:
 		    	if UPDATE_VALUE(line.split(' ')[1]) == e.name and e.event_type == 'down':
 		        	print(">> Start shortcut process...")
