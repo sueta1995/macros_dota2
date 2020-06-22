@@ -3,37 +3,39 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using 
 
 namespace macros
 {
     class Program
     {
         static bool IS_STOP = false;
-        static string APP_NAME = "Dota2 Macros";
+        static string APP_NAME = "Macros Dota2";
+        static string APP_VERSION = " beta v0.1.1";
         static Process process = new Process();
+        static string FILE_NAME_CONFIG = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "\\macros_dota2.properties";
 
         static void Main(string[] args)
         {
             string[] str = Directory.GetFiles(Directory.GetCurrentDirectory());
 
             Console.Title = APP_NAME;
-            Console.WriteLine(">> " + APP_NAME + " v1.0");
+            Console.WriteLine(">> " + APP_NAME + APP_VERSION);
             Console.WriteLine(">> Write -help to get list of commands");
 
             try
             {
-                CLEAR_FILE(File.ReadAllLines("config.properties"));
+                CLEAR_FILE(File.ReadAllLines(FILE_NAME_CONFIG));
             }
 
             catch (Exception e)
             {
-                Console.WriteLine(">> An error occured: " + e.Message);
+                Console.WriteLine(">> Creating file macros_dota2.properties!");
+                File.Create(FILE_NAME_CONFIG);
             }
 
             CONSOLE();
 
-            /*string[] ALL_SHORT_CUT = File.ReadAllLines("config.properties");
+            /*string[] ALL_SHORT_CUT = File.ReadAllLines(FILE_NAME_CONFIG);
 
             ScriptEngine engine = Python.CreateEngine();
             string dir = Directory.GetCurrentDirectory() + "\\python";
@@ -83,7 +85,7 @@ namespace macros
                         else { SHORT_CUT += SYMBOL + " "; Console.Write("(" + SYMBOL + ") "); };
                     }
 
-                    File.AppendAllText("config.properties", PROFILE_NAME + " " + HOT_KEY + " " + SHORT_CUT + "\n");
+                    File.AppendAllText(FILE_NAME_CONFIG, PROFILE_NAME + " " + HOT_KEY + " " + SHORT_CUT + "\n");
 
                     Console.WriteLine(">> Values have been saved!");
                 }
@@ -92,7 +94,7 @@ namespace macros
                 {
                     try
                     {
-                        string[] ALL_SHORT_CUT = File.ReadAllLines("config.properties");
+                        string[] ALL_SHORT_CUT = File.ReadAllLines(FILE_NAME_CONFIG);
                         bool IS_FOUND = false;
 
                         for (int i = 0; i < ALL_SHORT_CUT.Length; i++)
@@ -107,7 +109,7 @@ namespace macros
                         if (IS_FOUND) Console.WriteLine(">> Choosen shortcut has been deleted!");
                         else Console.WriteLine(">> This shortcut was not found.");
 
-                        File.WriteAllLines("config.properties", ALL_SHORT_CUT);
+                        File.WriteAllLines(FILE_NAME_CONFIG, ALL_SHORT_CUT);
                     }
 
                     catch (Exception e)
@@ -121,7 +123,7 @@ namespace macros
                 {
                     try
                     {
-                        string[] ALL_SHORT_CUT = File.ReadAllLines("config.properties");
+                        string[] ALL_SHORT_CUT = File.ReadAllLines(FILE_NAME_CONFIG);
                         string SHORT_CUT = "";
                         bool IS_FOUND = false;
                         bool IS_STOP_CMD = false;
@@ -155,7 +157,7 @@ namespace macros
                         if (IS_FOUND) Console.WriteLine(">> Choosen shortcut has been edited!");
                         else Console.WriteLine(">> This shortcut was not found.");
 
-                        File.WriteAllLines("config.properties", ALL_SHORT_CUT);
+                        File.WriteAllLines(FILE_NAME_CONFIG, ALL_SHORT_CUT);
                     }
 
                     catch (Exception e)
@@ -169,7 +171,7 @@ namespace macros
                 {
                     try
                     {
-                        string[] ALL_SHORT_CUT = File.ReadAllLines("config.properties");
+                        string[] ALL_SHORT_CUT = File.ReadAllLines(FILE_NAME_CONFIG);
 
                         for (int i = 0; i < ALL_SHORT_CUT.Length; i++)
                         {
@@ -189,7 +191,7 @@ namespace macros
 
                 else if (CMD.ToLower() == "-start")
                 {
-                    CLEAR_FILE(File.ReadAllLines("config.properties"));
+                    CLEAR_FILE(File.ReadAllLines(FILE_NAME_CONFIG));
 
                     IS_STOP = true;
                     Console.WriteLine(">> Process has been started!");
@@ -205,7 +207,7 @@ namespace macros
 
                 try
                 {
-                    CLEAR_FILE(File.ReadAllLines("config.properties"));
+                    CLEAR_FILE(File.ReadAllLines(FILE_NAME_CONFIG));
                 }
 
                 catch (Exception e)
@@ -229,7 +231,7 @@ namespace macros
             catch { }
 
             FILE = FILE.Where(x => !string.IsNullOrWhiteSpace(x)).ToArray();
-            File.WriteAllLines("config.properties", FILE);
+            File.WriteAllLines(FILE_NAME_CONFIG, FILE);
         }
 
     }
