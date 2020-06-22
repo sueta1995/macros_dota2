@@ -4,10 +4,8 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <ApplicationIcon>keyboard.ico</ApplicationIcon>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Copyright />
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="IronPython" Version="2.7.10" />
-  </ItemGroup>
 
 </Project>

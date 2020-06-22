@@ -8,8 +8,7 @@
     ".NETCoreApp,Version=v3.1": {
       "macros/1.0.0": {
         "dependencies": {
-          "IronPython": "2.7.10",
-          "KeystrokeAPI": "1.0.6.4"
+          "IronPython": "2.7.10"
         },
         "runtime": {
           "macros.dll": {}
@@ -52,14 +51,6 @@
           "lib/netcoreapp3.1/IronPython.dll": {
             "assemblyVersion": "2.7.10.0",
             "fileVersion": "2.7.10.1000"
-          }
-        }
-      },
-      "KeystrokeAPI/1.0.6.4": {
-        "runtime": {
-          "lib/net46/KeystrokeAPI.dll": {
-            "assemblyVersion": "1.0.6.4",
-            "fileVersion": "1.0.0.0"
           }
         }
       },
@@ -210,13 +201,6 @@
       "sha512": "sha512-bRyoGXMat9TC8KVWifqXTjV6LFGhZBH7OnBuEIbCdCBL6rE25NONzAi8n6krC++F+GhII7/1Vk6MlUqfrBYjTA==",
       "path": "ironpython/2.7.10",
       "hashPath": "ironpython.2.7.10.nupkg.sha512"
-    },
-    "KeystrokeAPI/1.0.6.4": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-mp7zUUM3wV3UdNrpNNti0nun0koMLNzDTisHqNNIa24VKl4FYOcfmrY14+wShUIFbkt/qVvvuvglfBpFGszQcw==",
-      "path": "keystrokeapi/1.0.6.4",
-      "hashPath": "keystrokeapi.1.0.6.4.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/3.1.0": {
       "type": "package",
